@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import demo.simple.niceui.examples.BadgeViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import me.simple.ui.NiceBadgeView
-import kotlin.reflect.KClass
+import me.simple.ui.BadgeTextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun addItems() {
         mItems.add(
             ItemBean(
-                NiceBadgeView::class.java.simpleName,
+                BadgeTextView::class.java.simpleName,
                 BadgeViewActivity::class.java.name
             )
         )

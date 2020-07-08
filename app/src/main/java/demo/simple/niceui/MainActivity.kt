@@ -7,8 +7,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import demo.simple.niceui.examples.BadgeViewActivity
+import demo.simple.niceui.examples.NiceCheckBoxActivity
+import demo.simple.niceui.utils.ItemBean
+import demo.simple.niceui.utils.ItemBinder
 import kotlinx.android.synthetic.main.activity_main.*
 import me.simple.ui.BadgeTextView
+import me.simple.ui.NiceCheckBox
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,24 +30,15 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.run {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            addItemDecoration(
-                DividerItemDecoration(
-                    this@MainActivity,
-                    DividerItemDecoration.VERTICAL
-                )
-            )
+            addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
             adapter = mAdapter
         }
         addItems()
     }
 
     private fun addItems() {
-        mItems.add(
-            ItemBean(
-                BadgeTextView::class.java.simpleName,
-                BadgeViewActivity::class.java.name
-            )
-        )
+        mItems.add(ItemBean(BadgeTextView::class.java.simpleName, BadgeViewActivity::class.java.name))
+        mItems.add(ItemBean(NiceCheckBox::class.java.simpleName, NiceCheckBoxActivity::class.java.name))
 
         mAdapter.notifyDataSetChanged()
     }

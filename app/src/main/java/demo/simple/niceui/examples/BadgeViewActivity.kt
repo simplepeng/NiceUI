@@ -1,6 +1,5 @@
 package demo.simple.niceui.examples
 
-import demo.simple.niceui.BaseActivity
 import demo.simple.niceui.R
 import kotlinx.android.synthetic.main.activity_badge.*
 

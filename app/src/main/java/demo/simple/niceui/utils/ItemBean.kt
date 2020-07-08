@@ -1,4 +1,4 @@
-package demo.simple.niceui
+package demo.simple.niceui.utils
 
 import kotlin.reflect.KClass
 

@@ -1,4 +1,4 @@
-package demo.simple.niceui
+package demo.simple.niceui.utils
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewBinder
+import demo.simple.niceui.R
 
 class ItemBinder(
     private val onItemClick: (item: ItemBean) -> Unit

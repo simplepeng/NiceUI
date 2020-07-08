@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="NiceCheckView">
+    <declare-styleable name="NiceCheckBox">
         <attr name="unCheckedRes" format="reference" />
         <attr name="checkedRes" format="reference" />
         <attr name="isChecked" format="boolean" />
+        <attr name="autoChecked" format="boolean" />
     </declare-styleable>
 </resources>

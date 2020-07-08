@@ -1,4 +1,4 @@
-package demo.simple.niceui
+package demo.simple.niceui.examples
 
 import android.content.Context
 import android.os.Bundle

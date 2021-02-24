@@ -12,7 +12,7 @@ import demo.simple.niceui.utils.ItemBean
 import demo.simple.niceui.utils.ItemBinder
 import kotlinx.android.synthetic.main.activity_main.*
 import me.simple.ui.BadgeTextView
-import me.simple.ui.NiceCheckBox
+import me.simple.ui.NiceCompoundView
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun addItems() {
         mItems.add(ItemBean(BadgeTextView::class.java.simpleName, BadgeViewActivity::class.java.name))
-        mItems.add(ItemBean(NiceCheckBox::class.java.simpleName, NiceCheckBoxActivity::class.java.name))
+        mItems.add(ItemBean(NiceCompoundView::class.java.simpleName, NiceCheckBoxActivity::class.java.name))
 
         mAdapter.notifyDataSetChanged()
     }

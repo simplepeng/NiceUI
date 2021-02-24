@@ -12,12 +12,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <me.simple.ui.NiceCheckBox
+    <me.simple.ui.NiceSwitch
         android:id="@+id/checkbox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:autoChecked="false"
+        app:isChecked="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/checkbox1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

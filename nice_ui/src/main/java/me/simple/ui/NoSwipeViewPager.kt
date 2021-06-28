@@ -5,6 +5,9 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
 
+/**
+ * 不能滑动的ViewPager
+ */
 class NoSwipeViewPager @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null

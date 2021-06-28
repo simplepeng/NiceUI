@@ -1,6 +1,8 @@
 package me.simple.ui
 
+import android.content.Context
 import android.content.res.Resources
+import android.view.View
 
 /**
  * px to dp
@@ -31,3 +33,20 @@ val Double.sp: Double
 
 val Float.sp: Float
     get() = this / Resources.getSystem().displayMetrics.scaledDensity + 0.5f
+
+/**
+ *
+ */
+fun Resources.dp2px(value: Float): Float {
+    return this.displayMetrics.scaledDensity + 0.5f
+}
+
+/**
+ *
+ */
+fun Context.dp2px(value: Float) = this.resources.dp2px(value)
+
+/**
+ *
+ */
+fun View.dp2px(value: Float) = this.resources.dp2px(value)

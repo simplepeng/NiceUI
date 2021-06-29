@@ -1,6 +1,7 @@
 package demo.simple.niceui.examples
 
 import demo.simple.niceui.R
+import demo.simple.niceui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_badge.*
 
 class BadgeViewActivity : BaseActivity(){

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DashLineView">
+        <attr name="dlv_dashColor" format="color|reference" />
+        <attr name="dlv_dashRadius" format="dimension" />
+        <attr name="dlv_dashSize" format="dimension" />
+        <attr name="dlv_dashGap" format="dimension" />
+        <!--        <attr name="dlv_orientation" format="enum">-->
+        <!--            <enum name="horizontal" value="0" />-->
+        <!--            <enum name="vertical" value="1" />-->
+        <!--        </attr>-->
+    </declare-styleable>
+</resources>

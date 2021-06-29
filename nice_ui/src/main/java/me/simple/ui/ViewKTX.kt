@@ -38,7 +38,7 @@ val Float.sp: Float
  *
  */
 fun Resources.dp2px(value: Float): Float {
-    return this.displayMetrics.scaledDensity + 0.5f
+    return this.displayMetrics.density * value + 0.5f
 }
 
 /**

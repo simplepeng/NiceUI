@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:dlv_dashColor="@color/colorAccent"
+        app:dlv_dashRadius="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashLineView1" />
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:dlv_dashColor="@color/colorPrimary"
+        app:dlv_dashGap="5dp"
+        app:dlv_dashRadius="1dp"
+        app:dlv_dashSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashLineView2" />
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView4"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:dlv_dashColor="@color/colorPrimaryDark"
+        app:dlv_dashGap="5dp"
+        app:dlv_dashRadius="2dp"
+        app:dlv_dashSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashLineView3" />
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView5"
+        android:layout_width="4dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        app:dlv_dashGap="5dp"
+        app:dlv_dashRadius="2dp"
+        app:dlv_dashSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashLineView4" />
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView6"
+        android:layout_width="4dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="20dp"
+        app:dlv_dashColor="@color/colorAccent"
+        app:dlv_dashGap="5dp"
+        app:dlv_dashRadius="2dp"
+        app:dlv_dashSize="10dp"
+        app:layout_constraintStart_toEndOf="@id/dashLineView5"
+        app:layout_constraintTop_toTopOf="@id/dashLineView5" />
+
+    <me.simple.ui.DashLineView
+        android:id="@+id/dashLineView7"
+        android:layout_width="20dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="20dp"
+        app:dlv_dashColor="#FF00FF"
+        app:dlv_dashGap="5dp"
+        app:dlv_dashRadius="2dp"
+        app:dlv_dashSize="4dp"
+        app:layout_constraintStart_toEndOf="@id/dashLineView6"
+        app:layout_constraintTop_toTopOf="@id/dashLineView6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

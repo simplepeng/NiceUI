@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 /**
  * 正方形Layout
  */
-class SquareLayout @JvmOverloads constructor(
+open class SquareLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

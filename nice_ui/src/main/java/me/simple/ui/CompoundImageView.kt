@@ -2,18 +2,22 @@ package me.simple.ui
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 
-open class NiceCompoundView @JvmOverloads constructor(
+/**
+ * 用图片做切换的CheckBox，Switch,RadioButton基类
+ */
+open class CompoundImageView @JvmOverloads constructor(
     context: Context?,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AppCompatImageView(context, attrs, defStyleAttr) {
 
+    //是否自动选中
     var autoChecked: Boolean = true
 
+    //是否选中
     var isChecked: Boolean = false
         set(value) {
             changeStatus(value)
@@ -53,7 +57,9 @@ open class NiceCompoundView @JvmOverloads constructor(
         }
     }
 
-
+    /**
+     * 设置切换的图片资源
+     */
     private fun setResId(
         @DrawableRes
         unCheckedResId: Int,
@@ -66,7 +72,10 @@ open class NiceCompoundView @JvmOverloads constructor(
         changeStatus(isChecked)
     }
 
-    fun setOnCheckedListener(onChecked: (checkBox: NiceCompoundView, isChecked: Boolean) -> Unit) {
+    /**
+     * 设置选中监听
+     */
+    fun setOnCheckedListener(onChecked: (checkBox: CompoundImageView, isChecked: Boolean) -> Unit) {
         this.setOnClickListener {
 
             //不是自动选中

@@ -7,7 +7,7 @@ import androidx.appcompat.widget.AppCompatImageView
 /**
  * 正方形ImageView
  */
-class SquareImageView @JvmOverloads constructor(
+open class SquareImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

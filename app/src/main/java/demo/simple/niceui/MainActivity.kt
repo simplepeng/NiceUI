@@ -14,7 +14,7 @@ import demo.simple.niceui.utils.ItemBinder
 import kotlinx.android.synthetic.main.activity_main.*
 import me.simple.ui.BadgeTextView
 import me.simple.ui.DashLineView
-import me.simple.ui.NiceCompoundView
+import me.simple.ui.CompoundImageView
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun addItems() {
         mItems.add(ItemBean(BadgeTextView::class.java.simpleName, BadgeViewActivity::class.java.name))
-        mItems.add(ItemBean(NiceCompoundView::class.java.simpleName, NiceCheckBoxActivity::class.java.name))
+        mItems.add(ItemBean(CompoundImageView::class.java.simpleName, NiceCheckBoxActivity::class.java.name))
         mItems.add(ItemBean(DashLineView::class.java.simpleName, DashLineActivity::class.java.name))
 
         mAdapter.notifyDataSetChanged()

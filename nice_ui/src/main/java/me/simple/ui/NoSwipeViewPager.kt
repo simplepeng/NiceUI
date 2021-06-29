@@ -8,7 +8,7 @@ import androidx.viewpager.widget.ViewPager
 /**
  * 不能滑动的ViewPager
  */
-class NoSwipeViewPager @JvmOverloads constructor(
+open class NoSwipeViewPager @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : ViewPager(context, attrs) {

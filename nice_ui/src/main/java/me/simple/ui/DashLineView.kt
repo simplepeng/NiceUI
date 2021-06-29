@@ -11,7 +11,7 @@ import android.view.View
 /**
  * 虚线View
  */
-class DashLineView @JvmOverloads constructor(
+open class DashLineView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

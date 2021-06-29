@@ -9,7 +9,10 @@ import android.util.AttributeSet
 import android.view.Gravity
 import androidx.appcompat.widget.AppCompatTextView
 
-class BadgeTextView @JvmOverloads constructor(
+/**
+ * 红点徽章TextView
+ */
+open class BadgeTextView @JvmOverloads constructor(
     context: Context? = null,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -17,22 +20,28 @@ class BadgeTextView @JvmOverloads constructor(
 
     private val drawable = GradientDrawable()
 
+    //背景颜色
     var color: Int = Color.RED
         set(value) {
             field = value
             requestLayout()
         }
+
+    //水平间距
     var horizontalPadding = 0
         set(value) {
             field = value
             requestLayout()
         }
+
+    //垂直间距
     var verticalPadding = 0
         set(value) {
             field = value
             requestLayout()
         }
 
+    //最大显示数量
     var maxCount = Int.MAX_VALUE
 
     init {
@@ -93,7 +102,7 @@ class BadgeTextView @JvmOverloads constructor(
         setDrawable(h)
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         setDrawable(height)
         super.onDraw(canvas)
     }

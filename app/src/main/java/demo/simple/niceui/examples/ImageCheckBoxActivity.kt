@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.activity_nice_checkbox.*
 
 class ImageCheckBoxActivity : BaseActivity() {
 
-    override fun setLayoutRes()= R.layout.activity_nice_checkbox
+    override fun setLayoutRes() = R.layout.activity_nice_checkbox
 
     override fun initView() {
         checkbox1.setOnCheckedListener { checkBox, isChecked ->
@@ -15,7 +15,7 @@ class ImageCheckBoxActivity : BaseActivity() {
         }
 
         checkbox2.setOnCheckedListener { checkBox, isChecked ->
-            showToast("isChecked == $isChecked")
+            showToast("isChecked == ${!isChecked}")
             checkBox.isChecked = !isChecked
         }
     }

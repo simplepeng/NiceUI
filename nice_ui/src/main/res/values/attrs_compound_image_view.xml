@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CompoundImageView">
+        <attr name="civ_unCheckedRes" format="reference" />
+        <attr name="civ_checkedRes" format="reference" />
+        <attr name="civ_isChecked" format="boolean" />
+        <attr name="civ_autoChecked" format="boolean" />
+    </declare-styleable>
+</resources>

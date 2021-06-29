@@ -33,19 +33,18 @@ open class CompoundImageView @JvmOverloads constructor(
 
     private fun initAttrs(attrs: AttributeSet?) {
         if (attrs != null) {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.NiceCompoundView)
-            unCheckedResId = typedArray.getResourceId(
-                R.styleable.NiceCompoundView_unCheckedRes,
+            val ta = context.obtainStyledAttributes(attrs, R.styleable.CompoundImageView)
+            unCheckedResId = ta.getResourceId(
+                R.styleable.CompoundImageView_civ_unCheckedRes,
                 R.drawable.ic_unchecked
             )
-            checkedResId =
-                typedArray.getResourceId(
-                    R.styleable.NiceCompoundView_checkedRes,
-                    R.drawable.ic_checked
-                )
-            isChecked = typedArray.getBoolean(R.styleable.NiceCompoundView_isChecked, false)
-            autoChecked = typedArray.getBoolean(R.styleable.NiceCompoundView_autoChecked, true)
-            typedArray.recycle()
+            checkedResId = ta.getResourceId(
+                R.styleable.CompoundImageView_civ_checkedRes,
+                R.drawable.ic_checked
+            )
+            isChecked = ta.getBoolean(R.styleable.CompoundImageView_civ_isChecked, false)
+            autoChecked = ta.getBoolean(R.styleable.CompoundImageView_civ_autoChecked, true)
+            ta.recycle()
         }
     }
 

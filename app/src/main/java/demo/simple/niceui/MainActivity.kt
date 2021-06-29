@@ -7,14 +7,16 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import demo.simple.niceui.examples.BadgeViewActivity
-import demo.simple.niceui.examples.DashLineActivity
-import demo.simple.niceui.examples.NiceCheckBoxActivity
+import demo.simple.niceui.examples.DashLineViewActivity
+import demo.simple.niceui.examples.ImageCheckBoxActivity
+import demo.simple.niceui.examples.SquareLayoutActivity
 import demo.simple.niceui.utils.ItemBean
 import demo.simple.niceui.utils.ItemBinder
 import kotlinx.android.synthetic.main.activity_main.*
 import me.simple.ui.BadgeTextView
 import me.simple.ui.DashLineView
 import me.simple.ui.CompoundImageView
+import me.simple.ui.SquareLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,8 +42,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun addItems() {
         mItems.add(ItemBean(BadgeTextView::class.java.simpleName, BadgeViewActivity::class.java.name))
-        mItems.add(ItemBean(CompoundImageView::class.java.simpleName, NiceCheckBoxActivity::class.java.name))
-        mItems.add(ItemBean(DashLineView::class.java.simpleName, DashLineActivity::class.java.name))
+        mItems.add(ItemBean(CompoundImageView::class.java.simpleName, ImageCheckBoxActivity::class.java.name))
+        mItems.add(ItemBean(DashLineView::class.java.simpleName, DashLineViewActivity::class.java.name))
+        mItems.add(ItemBean(SquareLayout::class.java.simpleName, SquareLayoutActivity::class.java.name))
 
         mAdapter.notifyDataSetChanged()
     }

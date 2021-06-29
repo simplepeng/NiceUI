@@ -6,13 +6,19 @@
 
 红点徽章TextView
 
+![](imgs/img_badge_tv.png)
+
 ## DashLineView
 
 虚线View
 
+![](imgs/img_dash_line_view.png)
+
 ## ImageCheckBox，ImageSwitch
 
 用图片做切换的CompoundView
+
+![](imgs/img_image_check_box.png)
 
 ## NoSwipeViewPager
 
@@ -21,4 +27,6 @@
 ## SquareImageView，SquareLayout
 
 正方形ImageView，正方形Layout
+
+![](imgs/img_square_layout.png)
 

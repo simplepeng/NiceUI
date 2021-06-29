@@ -11,29 +11,56 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        tools:text="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
 
     <me.simple.ui.BadgeTextView
         android:id="@+id/badgeView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
-        app:horizontalPadding="10dp"
-        tools:text="22"
-        app:layout_constraintStart_toEndOf="@id/badgeView1"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="15sp"
+        app:btv_horizontalPadding="10dp"
+        app:layout_constraintStart_toEndOf="@id/badgeView1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="22" />
 
     <me.simple.ui.BadgeTextView
         android:id="@+id/badgeView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:maxCount="2"
-        android:textSize="15sp"
-        tools:text="333"
-        app:layout_constraintStart_toEndOf="@id/badgeView2"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:btv_color="@color/colorPrimary"
+        app:btv_maxCount="2"
+        app:layout_constraintStart_toEndOf="@id/badgeView2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="333" />
+
+    <me.simple.ui.BadgeTextView
+        android:id="@+id/badgeView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="9999"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:btv_color="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/badgeView1"
+        app:layout_constraintTop_toBottomOf="@id/badgeView1" />
+
+    <me.simple.ui.BadgeTextView
+        android:id="@+id/badgeView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="99999"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:btv_color="#AE62ef"
+        app:btv_maxCount="4"
+        app:layout_constraintStart_toEndOf="@id/badgeView4"
+        app:layout_constraintTop_toTopOf="@id/badgeView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,12 +59,12 @@ open class BadgeTextView @JvmOverloads constructor(
         if (context == null || attrs == null) return
         val typedArray =
             context.obtainStyledAttributes(attrs, R.styleable.BadgeTextView)
-        color = typedArray.getColor(R.styleable.BadgeTextView_color, Color.RED)
+        color = typedArray.getColor(R.styleable.BadgeTextView_btv_color, Color.RED)
         horizontalPadding =
-            typedArray.getDimension(R.styleable.BadgeTextView_horizontalPadding, 8f.dp).toInt()
+            typedArray.getDimension(R.styleable.BadgeTextView_btv_horizontalPadding, 8f.dp).toInt()
         verticalPadding =
-            typedArray.getDimension(R.styleable.BadgeTextView_verticalPadding, 0f).toInt()
-        maxCount = typedArray.getInt(R.styleable.BadgeTextView_maxCount, Int.MAX_VALUE)
+            typedArray.getDimension(R.styleable.BadgeTextView_btv_verticalPadding, 0f).toInt()
+        maxCount = typedArray.getInt(R.styleable.BadgeTextView_btv_maxCount, Int.MAX_VALUE)
         typedArray.recycle()
     }
 

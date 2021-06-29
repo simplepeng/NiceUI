@@ -18,8 +18,9 @@
         </activity>
 
         <activity android:name=".examples.BadgeViewActivity" />
-        <activity android:name=".examples.NiceCheckBoxActivity" />
-        <activity android:name=".examples.DashLineActivity" />
+        <activity android:name=".examples.ImageCheckBoxActivity" />
+        <activity android:name=".examples.DashLineViewActivity" />
+        <activity android:name=".examples.SquareLayoutActivity" />
 
 
     </application>

@@ -30,3 +30,8 @@
 
 ![](imgs/img_square_layout.png)
 
+## FlowRadioGroup
+
+流式的单选按钮组
+
+![](imgs/img_flow_radio_group.png)

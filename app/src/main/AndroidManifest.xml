@@ -21,6 +21,7 @@
         <activity android:name=".examples.ImageCheckBoxActivity" />
         <activity android:name=".examples.DashLineViewActivity" />
         <activity android:name=".examples.SquareLayoutActivity" />
+        <activity android:name=".examples.FlowRadioGroupActivity" />
 
 
     </application>

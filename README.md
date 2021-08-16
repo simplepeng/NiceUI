@@ -1,6 +1,6 @@
 # NiceUI
 
-一些小但实用的UI组件
+一些小巧但实用的UI组件
 
 ## BadgeTextView
 

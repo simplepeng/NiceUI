@@ -1,17 +1,20 @@
 package demo.simple.niceui.examples
 
-import demo.simple.niceui.R
 import demo.simple.niceui.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_badge.*
+import demo.simple.niceui.databinding.ActivityBadgeBinding
 
-class BadgeViewActivity : BaseActivity() {
+class BadgeViewActivity : BaseActivity<ActivityBadgeBinding>() {
 
-    override fun setLayoutRes() = R.layout.activity_badge
+    override fun initViewBinding() = ActivityBadgeBinding.inflate(this.layoutInflater)
 
     override fun initView() {
-        badgeView1.text = "1"
-        badgeView2.text = "22"
-        badgeView3.text = "333"
-        badgeView5.text = "9999999"
+        binding.run {
+            badgeView1.text = "1"
+            badgeView2.text = "22"
+            badgeView3.text = "333"
+            badgeView5.text = "9999999"
+        }
     }
+
+
 }

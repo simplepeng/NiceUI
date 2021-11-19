@@ -1,22 +1,24 @@
 package demo.simple.niceui.examples
 
-import demo.simple.niceui.R
 import demo.simple.niceui.base.BaseActivity
+import demo.simple.niceui.databinding.ActivityNiceCheckboxBinding
 import demo.simple.niceui.utils.showToast
-import kotlinx.android.synthetic.main.activity_nice_checkbox.*
 
-class ImageCheckBoxActivity : BaseActivity() {
+class ImageCheckBoxActivity : BaseActivity<ActivityNiceCheckboxBinding>() {
 
-    override fun setLayoutRes() = R.layout.activity_nice_checkbox
+    override fun initViewBinding() = ActivityNiceCheckboxBinding.inflate(this.layoutInflater)
 
     override fun initView() {
-        checkbox1.setOnCheckedListener { checkBox, isChecked ->
-            showToast("isChecked == $isChecked")
+        binding.run {
+            checkbox1.setOnCheckedListener { checkBox, isChecked ->
+                showToast("isChecked == $isChecked")
+            }
+
+            checkbox2.setOnCheckedListener { checkBox, isChecked ->
+                showToast("isChecked == ${!isChecked}")
+                checkBox.isChecked = !isChecked
+            }
         }
 
-        checkbox2.setOnCheckedListener { checkBox, isChecked ->
-            showToast("isChecked == ${!isChecked}")
-            checkBox.isChecked = !isChecked
-        }
     }
 }

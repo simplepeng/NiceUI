@@ -3,14 +3,18 @@ package demo.simple.niceui.base
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
-    private lateinit var mContext: Context
+    protected lateinit var mContext: Context
+
+    protected lateinit var binding: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(setLayoutRes())
+        binding = initViewBinding()
+        setContentView(binding.root)
 
         mContext = this
         supportActionBar?.run {
@@ -19,7 +23,7 @@ abstract class BaseActivity : AppCompatActivity() {
         initView()
     }
 
-    abstract fun setLayoutRes(): Int
+    abstract fun initViewBinding(): T
 
     abstract fun initView()
 }

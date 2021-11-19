@@ -1,11 +1,11 @@
 package demo.simple.niceui.examples
 
-import demo.simple.niceui.R
 import demo.simple.niceui.base.BaseActivity
+import demo.simple.niceui.databinding.ActivityDashLineBinding
 
-class DashLineViewActivity : BaseActivity() {
+class DashLineViewActivity : BaseActivity<ActivityDashLineBinding>() {
 
-    override fun setLayoutRes() = R.layout.activity_dash_line
+    override fun initViewBinding() = ActivityDashLineBinding.inflate(this.layoutInflater)
 
     override fun initView() {
     }

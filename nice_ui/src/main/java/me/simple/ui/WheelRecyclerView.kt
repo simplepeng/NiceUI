@@ -71,10 +71,10 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
             if (itemCount == 0) return
 
-            val itemView = recycler.getViewForPosition(0)
+            val itemView = recycler.getViewForPosition(itemSize - 1)
             addView(itemView)
-//            measureChildWithMargins(itemView, 0, 0)
-            measureChild(itemView, widthSpec, heightSpec)
+            measureChildWithMargins(itemView, 0, 0)
+//            measureChild(itemView, widthSpec, heightSpec)
             val itemWidth = getDecoratedMeasuredWidth(itemView)
             val itemHeight = getDecoratedMeasuredHeight(itemView)
             removeAndRecycleView(itemView, recycler)
@@ -85,6 +85,8 @@ open class WheelRecyclerView @JvmOverloads constructor(
                 setMeasuredDimension(itemWidth, itemHeight * maxItem)
             }
         }
+
+
     }
 
     inner class WheelAdapter<T>(

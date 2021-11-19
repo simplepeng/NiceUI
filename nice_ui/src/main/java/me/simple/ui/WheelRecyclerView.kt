@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 
 open class WheelRecyclerView @JvmOverloads constructor(
@@ -20,7 +19,11 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     var maxItem = 3
 
+    var onItemSelectedListener: ((position: Int) -> Unit)? = null
+
     private val snapHelper = LinearSnapHelper()
+
+    private var itemSize = 0
 
     init {
         snapHelper.attachToRecyclerView(this)
@@ -39,6 +42,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
         items: List<T>,
         delegate: ViewHolderDelegate<T>
     ) {
+        itemSize = items.size
         layoutManager = WheelLayoutManager(context)
         adapter = WheelAdapter(items, delegate)
         if (isLoop) {
@@ -104,11 +108,15 @@ open class WheelRecyclerView @JvmOverloads constructor(
             holder: ViewHolder,
             position: Int
         ) {
-            val fixPosition = holder.adapterPosition % items.size
+            val fixPosition = getFixPosition(holder.adapterPosition)
             val item = items[fixPosition]
             delegate.onBindViewHolder(holder, fixPosition, item)
         }
 
+    }
+
+    fun getFixPosition(adapterPosition: Int): Int {
+        return adapterPosition % itemSize
     }
 
     abstract class ViewHolderDelegate<T> {
@@ -146,4 +154,16 @@ open class WheelRecyclerView @JvmOverloads constructor(
     }
 
     open class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    override fun onScrollStateChanged(state: Int) {
+        super.onScrollStateChanged(state)
+        if (state == SCROLL_STATE_IDLE) {
+            onItemSelectedListener?.invoke(getFixPosition(getCurrentItem()))
+        }
+    }
+
+    fun getCurrentItem(): Int {
+        val centerView = snapHelper.findSnapView(this.layoutManager) ?: return -1
+        return getChildAdapterPosition(centerView)
+    }
 }

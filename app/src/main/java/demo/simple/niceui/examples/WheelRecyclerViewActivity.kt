@@ -1,5 +1,6 @@
 package demo.simple.niceui.examples
 
+import androidx.recyclerview.widget.LinearLayoutManager
 import demo.simple.niceui.base.BaseActivity
 import demo.simple.niceui.databinding.ActivityWheelRecyclerViewBinding
 import demo.simple.niceui.utils.showToast
@@ -21,5 +22,6 @@ class WheelRecyclerViewActivity : BaseActivity<ActivityWheelRecyclerViewBinding>
                 showToast(items[position])
             }
         }
+
     }
 }

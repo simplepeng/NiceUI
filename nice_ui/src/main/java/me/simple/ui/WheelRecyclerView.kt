@@ -27,11 +27,18 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     init {
         snapHelper.attachToRecyclerView(this)
+    }
 
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        setInEditMode()
+    }
+
+    private fun setInEditMode() {
         if (isInEditMode) {
             isLoop = true
             val items = mutableListOf<String>()
-            for (item in 1..10) {
+            for (item in 1..100) {
                 items.add(String.format("%02d", item))
             }
             setData(items, TextViewDelegate())
@@ -40,10 +47,17 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     fun <T> setData(
         items: List<T>,
-        delegate: ViewHolderDelegate<T>
+        delegate: ViewHolderDelegate<T>,
+        maxItem: Int = 3,
+        isLoop: Boolean = true,
+        orientation: Int = LinearLayoutManager.VERTICAL,
+        reverseLayout: Boolean = false
     ) {
-        itemSize = items.size
-        layoutManager = WheelLayoutManager(context)
+        this.itemSize = items.size
+        this.isLoop = isLoop
+        this.maxItem = maxItem
+
+        layoutManager = WheelLayoutManager(context, orientation, reverseLayout)
         adapter = WheelAdapter(items, delegate)
         if (isLoop) {
             post {
@@ -54,8 +68,10 @@ open class WheelRecyclerView @JvmOverloads constructor(
     }
 
     inner class WheelLayoutManager(
-        context: Context
-    ) : LinearLayoutManager(context) {
+        context: Context,
+        orientation: Int,
+        reverseLayout: Boolean
+    ) : LinearLayoutManager(context, orientation, reverseLayout) {
 
         override fun isAutoMeasureEnabled(): Boolean {
             return false
@@ -75,18 +91,48 @@ open class WheelRecyclerView @JvmOverloads constructor(
             addView(itemView)
             measureChildWithMargins(itemView, 0, 0)
 //            measureChild(itemView, widthSpec, heightSpec)
+
             val itemWidth = getDecoratedMeasuredWidth(itemView)
             val itemHeight = getDecoratedMeasuredHeight(itemView)
-            removeAndRecycleView(itemView, recycler)
+
+            val widthMode = MeasureSpec.getMode(widthSpec)
+            val heightMode = MeasureSpec.getMode(heightSpec)
+
+            if (widthMode == MeasureSpec.AT_MOST && orientation == VERTICAL) {
+                throw IllegalArgumentException("竖向排列时-View的宽度不能是wrap_content")
+            }
+
+            if (heightMode == MeasureSpec.AT_MOST && orientation == HORIZONTAL) {
+                throw IllegalArgumentException("横向排列时-View的高度不能是wrap_content")
+            }
+
+            var widthSize = MeasureSpec.getSize(widthSpec)
+            var heightSize = MeasureSpec.getSize(heightSpec)
 
             if (orientation == HORIZONTAL) {
-                setMeasuredDimension(itemWidth * maxItem, itemHeight)
+                widthSize = itemWidth * maxItem
             } else {
-                setMeasuredDimension(itemWidth, itemHeight * maxItem)
+                heightSize = itemHeight * maxItem
             }
+
+            removeAndRecycleView(itemView, recycler)
+
+            setMeasuredDimension(widthSize, heightSize)
         }
 
-
+        override fun generateDefaultLayoutParams(): LayoutParams {
+            return if (orientation == HORIZONTAL) {
+                LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+            } else {
+                LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        }
     }
 
     inner class WheelAdapter<T>(

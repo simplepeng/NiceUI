@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_square_layout.xml" value="0.38564102564102565" />
         <entry key="app/src/main/res/layout/activity_wheel_recycler_view.xml" value="0.38564102564102565" />
         <entry key="nice_ui/src/main/res/layout/item_wheel_text_view.xml" value="0.38564102564102565" />
+        <entry key="nice_ui/src/main/res/layout/item_wheel_text_view_vertical.xml" value="0.38564102564102565" />
       </map>
     </option>
   </component>

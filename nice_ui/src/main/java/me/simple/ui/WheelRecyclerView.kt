@@ -24,6 +24,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     init {
         snapHelper.attachToRecyclerView(this)
+
         if (isInEditMode) {
             isLoop = true
             val items = mutableListOf<String>()
@@ -40,6 +41,12 @@ open class WheelRecyclerView @JvmOverloads constructor(
     ) {
         layoutManager = WheelLayoutManager(context)
         adapter = WheelAdapter(items, delegate)
+        if (isLoop) {
+            post {
+                val centerStartPosition = (Int.MAX_VALUE / 2) - (Int.MAX_VALUE / 2 % items.size) + 1
+                scrollToPosition(centerStartPosition)
+            }
+        }
     }
 
     inner class WheelLayoutManager(
@@ -97,8 +104,9 @@ open class WheelRecyclerView @JvmOverloads constructor(
             holder: ViewHolder,
             position: Int
         ) {
-            val item = items[holder.adapterPosition]
-            delegate.onBindViewHolder(holder, position, item)
+            val fixPosition = holder.adapterPosition % items.size
+            val item = items[fixPosition]
+            delegate.onBindViewHolder(holder, fixPosition, item)
         }
 
     }

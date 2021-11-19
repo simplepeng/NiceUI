@@ -12,7 +12,7 @@ class WheelRecyclerViewActivity : BaseActivity<ActivityWheelRecyclerViewBinding>
         binding.WheelTextView.apply {
             isLoop = true
             val items = mutableListOf<String>()
-            for (item in 0..23) {
+            for (item in 0..123) {
                 items.add(String.format("%02d", item))
             }
             setData(items, WheelRecyclerView.TextViewDelegate())

@@ -1,5 +1,6 @@
 package demo.simple.niceui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import demo.simple.niceui.utils.ItemBean
 import demo.simple.niceui.utils.ItemBinder
 import me.simple.ui.*
 
+@SuppressLint("NotifyDataSetChanged")
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(this.layoutInflater) }
@@ -70,6 +72,12 @@ class MainActivity : AppCompatActivity() {
             ItemBean(
                 FlowRadioGroup::class.java.simpleName,
                 FlowRadioGroupActivity::class.java.name
+            )
+        )
+        mItems.add(
+            ItemBean(
+                WheelRecyclerView::class.java.simpleName,
+                WheelRecyclerViewActivity::class.java.name
             )
         )
 

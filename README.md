@@ -2,6 +2,14 @@
 
 一些小巧但实用的UI组件
 
+```groovy
+maven { url 'https://jitpack.io' }
+```
+
+```groovy
+implementation 'com.github.simplepeng:NiceUI:v1.0.0'
+```
+
 ## BadgeTextView
 
 红点徽章TextView

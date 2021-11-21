@@ -35,3 +35,9 @@
 流式的单选按钮组
 
 ![](imgs/img_flow_radio_group.png)
+
+## WheelRecycleView
+
+滚轮效果的RecyclerView
+
+![](imgs/img_wheel_recycler_view.png)

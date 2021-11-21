@@ -17,7 +17,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     var isLoop = false
 
-    var maxItem = 3
+    var visibleCount = 3
 
     var onItemSelectedListener: ((position: Int) -> Unit)? = null
 
@@ -48,14 +48,14 @@ open class WheelRecyclerView @JvmOverloads constructor(
     fun <T> setData(
         items: List<T>,
         delegate: ViewHolderDelegate<T>,
-        maxItem: Int = 3,
+        visibleCount: Int = 3,
         isLoop: Boolean = true,
         orientation: Int = LinearLayoutManager.VERTICAL,
         reverseLayout: Boolean = false
     ) {
         this.itemSize = items.size
         this.isLoop = isLoop
-        this.maxItem = maxItem
+        this.visibleCount = visibleCount
 
         layoutManager = WheelLayoutManager(context, orientation, reverseLayout)
         adapter = WheelAdapter(items, delegate)
@@ -110,9 +110,9 @@ open class WheelRecyclerView @JvmOverloads constructor(
             var heightSize = MeasureSpec.getSize(heightSpec)
 
             if (orientation == HORIZONTAL) {
-                widthSize = itemWidth * maxItem
+                widthSize = itemWidth * visibleCount
             } else {
-                heightSize = itemHeight * maxItem
+                heightSize = itemHeight * visibleCount
             }
 
             removeAndRecycleView(itemView, recycler)
@@ -212,6 +212,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     fun getCurrentItem(): Int {
         val centerView = snapHelper.findSnapView(this.layoutManager) ?: return -1
-        return getChildAdapterPosition(centerView)
+        val position = getChildAdapterPosition(centerView)
+        return getFixPosition(position)
     }
 }

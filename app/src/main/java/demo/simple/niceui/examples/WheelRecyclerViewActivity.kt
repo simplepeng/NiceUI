@@ -1,6 +1,6 @@
 package demo.simple.niceui.examples
 
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.view.View
 import demo.simple.niceui.base.BaseActivity
 import demo.simple.niceui.databinding.ActivityWheelRecyclerViewBinding
 import demo.simple.niceui.utils.showToast
@@ -23,5 +23,10 @@ class WheelRecyclerViewActivity : BaseActivity<ActivityWheelRecyclerViewBinding>
             }
         }
 
+    }
+
+    fun getCurrentItem(view: View) {
+        val currentItem = binding.WheelTextView.getCurrentItem()
+        showToast("currentItem == $currentItem")
     }
 }

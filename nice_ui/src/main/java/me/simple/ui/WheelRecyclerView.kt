@@ -47,7 +47,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     fun <T> setData(
         items: List<T>,
-        delegate: ViewHolderDelegate<T>,
+        delegate: ViewHolderDelegate<T, *>,
         visibleCount: Int = 3,
         isLoop: Boolean = true,
         orientation: Int = LinearLayoutManager.VERTICAL,
@@ -135,10 +135,10 @@ open class WheelRecyclerView @JvmOverloads constructor(
         }
     }
 
-    inner class WheelAdapter<T>(
+    inner class WheelAdapter<T, VH : ViewHolder>(
         private val items: List<T>,
-        private val delegate: ViewHolderDelegate<T>
-    ) : RecyclerView.Adapter<ViewHolder>() {
+        private val delegate: ViewHolderDelegate<T, VH>
+    ) : RecyclerView.Adapter<VH>() {
 
         override fun getItemCount(): Int {
             if (isLoop) return Int.MAX_VALUE
@@ -148,12 +148,12 @@ open class WheelRecyclerView @JvmOverloads constructor(
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-        ): ViewHolder {
+        ): VH {
             return delegate.onCreateViewHolder(parent, viewType)
         }
 
         override fun onBindViewHolder(
-            holder: ViewHolder,
+            holder: VH,
             position: Int
         ) {
             val fixPosition = getFixPosition(holder.adapterPosition)
@@ -167,33 +167,33 @@ open class WheelRecyclerView @JvmOverloads constructor(
         return adapterPosition % itemSize
     }
 
-    abstract class ViewHolderDelegate<T> {
+    abstract class ViewHolderDelegate<T, VH : ViewHolder> {
 
         abstract fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-        ): ViewHolder
+        ): VH
 
         abstract fun onBindViewHolder(
-            holder: ViewHolder,
+            holder: VH,
             position: Int,
             item: T
         )
     }
 
-    open class TextViewDelegate : ViewHolderDelegate<String>() {
+    open class TextViewDelegate : ViewHolderDelegate<String, TextViewHolder>() {
 
         override fun onCreateViewHolder(
             parent: ViewGroup,
             viewType: Int
-        ): ViewHolder {
+        ): TextViewHolder {
             val itemView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_wheel_text_view, parent, false)
             return TextViewHolder(itemView)
         }
 
         override fun onBindViewHolder(
-            holder: ViewHolder,
+            holder: TextViewHolder,
             position: Int,
             item: String
         ) {
@@ -201,7 +201,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
         }
     }
 
-    open class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    open class TextViewHolder(itemView: View) : ViewHolder(itemView)
 
     override fun onScrollStateChanged(state: Int) {
         super.onScrollStateChanged(state)

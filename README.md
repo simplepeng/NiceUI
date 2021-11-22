@@ -7,7 +7,7 @@ maven { url 'https://jitpack.io' }
 ```
 
 ```groovy
-implementation 'com.github.simplepeng:NiceUI:v1.0.0'
+implementation 'com.github.simplepeng:NiceUI:v1.0.1'
 ```
 
 ## BadgeTextView

@@ -14,10 +14,10 @@ class WheelRecyclerViewActivity : BaseActivity<ActivityWheelRecyclerViewBinding>
         binding.WheelTextView.apply {
             isLoop = true
             val items = mutableListOf<String>()
-            for (item in 0..10000) {
+            for (item in 0..20) {
                 items.add(String.format("%02d", item))
             }
-            setData(items, WheelRecyclerView.TextViewDelegate())
+            setData(items, WheelRecyclerView.TextViewDelegate(), visibleCount = 1, isLoop = true)
             onItemSelectedListener = { position ->
                 showToast(items[position])
             }
@@ -28,5 +28,13 @@ class WheelRecyclerViewActivity : BaseActivity<ActivityWheelRecyclerViewBinding>
     fun getCurrentItem(view: View) {
         val currentItem = binding.WheelTextView.getCurrentItem()
         showToast("currentItem == $currentItem")
+    }
+
+    fun nextItem(view: View) {
+        binding.WheelTextView.scrollToNext()
+    }
+
+    fun preItem(view: View) {
+        binding.WheelTextView.scrollToPrevious()
     }
 }

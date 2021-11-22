@@ -53,6 +53,8 @@ open class WheelRecyclerView @JvmOverloads constructor(
         orientation: Int = LinearLayoutManager.VERTICAL,
         reverseLayout: Boolean = false
     ) {
+        checkVisibleCount(visibleCount)
+
         this.itemSize = items.size
         this.isLoop = isLoop
         this.visibleCount = visibleCount
@@ -65,6 +67,11 @@ open class WheelRecyclerView @JvmOverloads constructor(
                 scrollToPosition(centerStartPosition)
             }
         }
+    }
+
+    private fun checkVisibleCount(visibleCount: Int) {
+        if (visibleCount % 2 == 0)
+            throw IllegalArgumentException("visibleCount不能是偶数")
     }
 
     inner class WheelLayoutManager(
@@ -214,5 +221,40 @@ open class WheelRecyclerView @JvmOverloads constructor(
         val centerView = snapHelper.findSnapView(this.layoutManager) ?: return -1
         val position = getChildAdapterPosition(centerView)
         return getFixPosition(position)
+    }
+
+    fun getCenterAdapterPosition(): Int {
+        val centerView = snapHelper.findSnapView(this.layoutManager) ?: return -1
+        return getChildAdapterPosition(centerView)
+    }
+
+    fun scrollToNext() {
+        val position = getCenterAdapterPosition()
+        if (position == -1 || adapter == null || adapter?.itemCount == 0) return
+        val nextPosition = if (position == adapter!!.itemCount - 1) {
+            0
+        } else {
+            position + (visibleCount / 2 + 1)
+        }
+        if (nextPosition == 0 && !isLoop) {
+            scrollToPosition(nextPosition)
+        } else {
+            smoothScrollToPosition(nextPosition)
+        }
+    }
+
+    fun scrollToPrevious() {
+        val position = getCenterAdapterPosition()
+        if (position == -1 || adapter == null || adapter?.itemCount == 0) return
+        val prePosition = if (position == 0) {
+            adapter!!.itemCount - 1
+        } else {
+            position - (visibleCount / 2 + 1)
+        }
+        if (prePosition == adapter!!.itemCount - 1 && !isLoop) {
+            scrollToPosition(prePosition)
+        } else {
+            smoothScrollToPosition(prePosition)
+        }
     }
 }

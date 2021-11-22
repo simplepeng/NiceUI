@@ -15,13 +15,32 @@
 
 
     <Button
+        android:id="@+id/btnCurrentItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="getCurrentItem"
-        android:textAllCaps="false"
         android:layout_marginTop="10dp"
         android:onClick="getCurrentItem"
+        android:text="getCurrentItem"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/WheelTextView"
         app:layout_constraintStart_toStartOf="@+id/WheelTextView"
         app:layout_constraintTop_toBottomOf="@+id/WheelTextView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="nextItem"
+        android:text="nextItem"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnCurrentItem" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="preItem"
+        android:text="preItem"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnCurrentItem" />
 </androidx.constraintlayout.widget.ConstraintLayout>

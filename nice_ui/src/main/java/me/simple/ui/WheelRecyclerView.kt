@@ -17,7 +17,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
 
     var isLoop = false
 
-    var visibleCount = 3
+    var visibleCount = 1
 
     var onItemSelectedListener: ((position: Int) -> Unit)? = null
 
@@ -48,7 +48,7 @@ open class WheelRecyclerView @JvmOverloads constructor(
     fun <T> setData(
         items: List<T>,
         delegate: ViewHolderDelegate<T, *>,
-        visibleCount: Int = 3,
+        visibleCount: Int = 1,
         isLoop: Boolean = true,
         orientation: Int = LinearLayoutManager.VERTICAL,
         reverseLayout: Boolean = false
@@ -90,9 +90,10 @@ open class WheelRecyclerView @JvmOverloads constructor(
             widthSpec: Int,
             heightSpec: Int
         ) {
-            super.onMeasure(recycler, state, widthSpec, heightSpec)
-
-            if (itemCount == 0) return
+            if (itemCount == 0) {
+                super.onMeasure(recycler, state, widthSpec, heightSpec)
+                return
+            }
 
             val itemView = recycler.getViewForPosition(itemSize - 1)
             addView(itemView)
